@@ -27,13 +27,13 @@ function playRound () {
         resultRound.textContent =  "You win!, " + playerSelection + " beats " + computerChoice;
     }
     if (playerScore == 5) {
+        alert(`You won! You have beaten the computer ${playerScore} to ${computerScore}. Do you want to try again`);
         playerScore = 0;
         computerScore = 0;
-        resultGame.textContent = "You won! You have beaten the computer.";
     } else if (computerScore == 5) {
+        alert(`You lost! The computer beat you ${computerScore} to ${playerScore}. Do you want to try again?`);
         playerScore = 0;
         computerScore = 0;
-        resultGame.textContent = "You lost! The computer beat you.";
     } else {
         resultGame.textContent = `Your score is: ${playerScore}. Computer's score is: ${computerScore}.`;
     }
