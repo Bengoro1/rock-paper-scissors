@@ -16,8 +16,7 @@ let playerScore = 0;
 let computerScore = 0;
 
 function playRound () {    
-    getComputerChoice();
-       
+    getComputerChoice();       
     if (playerSelection === computerChoice) {
         resultRound.textContent =  "It's a tie!";
     } else if ((playerSelection == "rock" && computerChoice == "paper") || (playerSelection == "paper" && computerChoice == "scissors") || (playerSelection == "scissors" && computerChoice == "rock")) {
@@ -27,27 +26,18 @@ function playRound () {
         playerScore++
         resultRound.textContent =  "You win!, " + playerSelection + " beats " + computerChoice;
     }
-    console.log(`Your score is: ${playerScore}. Computer's score is: ${computerScore}.`); 
+    if (playerScore == 5) {
+        playerScore = 0;
+        computerScore = 0;
+        resultGame.textContent = "You won! You have beaten the computer.";
+    } else if (computerScore == 5) {
+        playerScore = 0;
+        computerScore = 0;
+        resultGame.textContent = "You lost! The computer beat you.";
+    } else {
+        resultGame.textContent = `Your score is: ${playerScore}. Computer's score is: ${computerScore}.`;
+    }
 }
-
-function game() {
-    do {        
-        playRound();      
-        const resultGame = document.querySelector("#resultGame")
-        if (playerScore == 5) {
-            playerScore = 0;
-            computerScore = 0;
-            resultGame.textContent = "You won! You have beaten the computer.";
-        } else if (computerScore == 5) {
-            playerScore = 0;
-            computerScore = 0;
-            resultGame.textContent = "You lost! The computer beat you.";
-        } else {
-            resultGame.textContent = `Your score is: ${playerScore}. Computer's score is: ${computerScore}.`;
-        }
-    } while ((playerScore < 5) && (computerScore < 5));   
-}
-console.log(`Your score is: ${playerScore}. Computer's score is: ${computerScore}.`);
 
 const resultRound = document.querySelector("#resultRound");
 const rock = document.querySelector("#rock");
@@ -67,5 +57,5 @@ scissors.addEventListener('click', () => {
     playerSelection = "scissors";
     playRound();
 });
-  
+
  
