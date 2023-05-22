@@ -1,0 +1,36 @@
+html,
+body {
+    height: 99%;
+}
+
+body {
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#btn-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    width: 13vw;
+    height: 13vw;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+img {
+    width: 13vw;
+    height: 13vw;
+}
+
+.result {
+    font-size: 3vw;
+}
